@@ -1,0 +1,14 @@
+D:\TenToTwo\TenToTwo\obj\Debug\TenToTwo.csprojAssemblyReference.cache
+D:\TenToTwo\TenToTwo\obj\Debug\MainWindow.g.cs
+D:\TenToTwo\TenToTwo\obj\Debug\App.g.cs
+D:\TenToTwo\TenToTwo\obj\Debug\MainWindow.baml
+D:\TenToTwo\TenToTwo\obj\Debug\TenToTwo.csproj.GenerateResource.cache
+D:\TenToTwo\TenToTwo\obj\Debug\TenToTwo.csproj.CoreCompileInputs.cache
+D:\TenToTwo\TenToTwo\obj\Debug\NumSysConverter_MarkupCompile.cache
+D:\TenToTwo\TenToTwo\obj\Debug\NumSysConverter.g.resources
+D:\TenToTwo\TenToTwo\obj\Debug\NumericSystemConverter.Properties.Resources.resources
+D:\TenToTwo\TenToTwo\bin\Debug\NumSysConverter.exe.config
+D:\TenToTwo\TenToTwo\bin\Debug\NumSysConverter.exe
+D:\TenToTwo\TenToTwo\bin\Debug\NumSysConverter.pdb
+D:\TenToTwo\TenToTwo\obj\Debug\NumSysConverter.exe
+D:\TenToTwo\TenToTwo\obj\Debug\NumSysConverter.pdb
