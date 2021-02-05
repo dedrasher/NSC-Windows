@@ -1,0 +1,96 @@
+﻿<Window x:Class="NumericSystemConverterApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+    Closing="Window_Closing"
+        Title="N.S Converter" Height="350" Width="544" ResizeMode="CanMinimize"
+    >
+
+
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border CornerRadius="17.5"  
+                    Background="LightGray"  BorderThickness="1.5" BorderBrush="Black"   >
+                <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="Count"  Width="100" Height="45" Name="ContentControl"/>
+            </Border>
+        </ControlTemplate>
+        <ControlTemplate TargetType="Button" x:Key="btCleanTemplate">
+            <Border CornerRadius="7.5"  
+                    Background="LightGray"  BorderThickness="1.5" BorderBrush="Black"   >
+                <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Name="ContentControl"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="24*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="LightSlateGray" Opacity="0.25"/>
+        </Grid.Background>
+
+        <TextBox Grid.Row="0" FontSize="34" x:Name="Input" KeyDown="Input_KeyDown"                  
+                 HorizontalScrollBarVisibility="Auto" CharacterCasing="Upper" 
+          Margin="1.5"
+            TextChanged="Input_TextChanged"  LostFocus="Input_LostFocus" BorderBrush="Gray" BorderThickness="1.7" />
+        <Label
+            Grid.Row="0" Content="Enter a number" FontSize="30"  x:Name="Hint"  PreviewMouseDown="Hint_PreviewMouseDown" Margin="1.8" >
+            <TextBlock.Foreground>
+                <SolidColorBrush Color ="Gray" />
+            </TextBlock.Foreground>
+        </Label>
+        <Image
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="209,10,10,15"
+            Stretch="Fill"
+            x:Name="LanguageSwitcher"
+            PreviewMouseDown="LanguageSwitcher_PreviewMouseDown"
+            />
+        <RadioButton Grid.Row="1" Content="Decimal to binary" FontSize="24
+                     " x:Name="DecimalToBinary" Checked="DecimalToBinary_Checked"
+                     VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,254,0"
+            />
+        <RadioButton Grid.Row="2" Content="Binary to decimal" FontSize="24
+                     " x:Name="BinaryToDecimal" Checked="BinaryToDecimal_Checked" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,254,0"/>
+        <TextBlock  Grid.Row="4" FontSize="20" x:Name="AnswerLabel" TextWrapping="Wrap" HorizontalAlignment="Center" PreviewMouseDown="AnswerLabel_PreviewMouseDown"  />
+        <Button Grid.Row="5"  
+              FontSize="35"               x:Name="CountButton"
+         Template="{StaticResource btTemplate}"    Click="Button_Click" Margin="70,3,70,1" />
+        <Label Grid.Row="3" Content="From" Margin="10,5,195,11" FontSize="24"  x:Name="FromText" HorizontalContentAlignment="Right"
+ />
+        <Label Grid.Row="3" Content="To" Margin="119,5,107,5" FontSize="24" HorizontalContentAlignment="Center" x:Name="ToLabel" />
+        <Label Grid.Row="3" Margin="207,5,5,11" Content="N.s" FontSize="24" x:Name="NsLabel"/>
+        <RadioButton Grid.Row="3" FontSize="24" x:Name="FromRadioButton" Margin="0,0,259,0" VerticalContentAlignment="Center" Height="44" VerticalAlignment="Top" Checked="FromRadioButton_Checked" Grid.ColumnSpan="2" />
+        <TextBox Grid.Row="3"  FontSize="24" Margin="79,5,155,10" x:Name="From" VerticalContentAlignment="Bottom"  KeyDown="From_KeyDown" MaxLength="2" TextChanged="From_TextChanged"/>
+        <TextBox Grid.Row="3"  FontSize="24" Margin="167,5,67,10" x:Name="To" VerticalContentAlignment="Bottom" KeyDown="To_KeyDown" MaxLength="2" TextChanged="To_TextChanged"/>
+        <ListBox Grid.Column="1" x:Name="History" Grid.RowSpan ="4" Grid.Row="1" Margin="10,0"
+                BorderThickness="2" BorderBrush="Gray"  SelectionMode="Multiple" SelectionChanged="History_SelectionChanged" />
+        <Label Grid.Column="2" Grid.Row="0" Content="History" FontSize="39" Padding="-4" HorizontalAlignment="Center" x:Name="HistoryBlock"/>
+        <Button
+            Grid.Row="5"  
+            Padding="-4" FontSize="18"
+              Margin="71,5,71,20" Grid.Column="1"    Template="{StaticResource btCleanTemplate}"
+            Click="ButtonClean_Click" x:Name="ClearButton"
+    
+     />
+    </Grid>
+
+</Window>
