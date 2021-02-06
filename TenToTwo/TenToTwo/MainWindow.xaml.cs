@@ -377,8 +377,8 @@ namespace NumericSystemConverterApp
             var item = value;
             var input = string.Join("", item.TakeWhile(s => !IsSmallRegisterNumber(s.ToString())).ToArray());
             var FromNC = UpperNumber(string.Join("", item.Remove(0, input.Length).TakeWhile(s => IsSmallRegisterNumber(s.ToString())).ToArray()));
-            var Result = string.Join("", item.Remove(0, input.Length + FromNC.Length + 2).TakeWhile(s => !IsSmallRegisterNumber(s.ToString())).ToArray());
-            var ToNC = UpperNumber(item.Remove(0, input.Length + FromNC.Length + 2 + Result.Length).ToUpper());
+            var Result = string.Join("", item.Remove(0, input.Length + FromNC.Length + 3).TakeWhile(s => !IsSmallRegisterNumber(s.ToString())).ToArray());
+            var ToNC = UpperNumber(item.Remove(0, input.Length + FromNC.Length + 3 + Result.Length).ToUpper());
             BinaryToDecimal.IsChecked = false;
             DecimalToBinary.IsChecked = false;
             FromRadioButton.IsChecked = true;
