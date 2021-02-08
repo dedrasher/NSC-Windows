@@ -41,6 +41,7 @@ namespace NumericSystemConverterApp
                     Bitmap.Save(ms, Bitmap.RawFormat);
                     byte[] byteImage = new byte[ms.Length];
                     byteImage = ms.ToArray();
+                    GC.Collect();
                     return byteImage;
                 }
                 catch (ArgumentNullException ex)
