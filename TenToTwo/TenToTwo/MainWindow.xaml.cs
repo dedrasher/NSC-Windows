@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -137,7 +137,8 @@ namespace NumericSystemConverterApp
         {
             UIElmentsToTranslate = new Control[]{Hint, DecimalToBinary, BinaryToDecimal,FromText,ToLabel, NsLabel, HistoryBlock };
             AppLocalize.IconsInit();
-            var Language = Settings.Default.Language;
+            currentSettings = Settings.Default;
+            var Language = currentSettings.Language;
                 appLanguage = Language == "Russian" ? AppLocalize.AppLanguage.Russian : AppLocalize.AppLanguage.English;
             LanguageSwitcher.Source = AppLocalize.GetLanguageIcon(appLanguage == AppLocalize.AppLanguage.English ? AppLocalize.AppLanguage.Russian : AppLocalize.AppLanguage.English);
             AppLocalize.LocalizeAll(appLanguage, UIElmentsToTranslate.Length, UIElmentsToTranslate);
@@ -145,9 +146,8 @@ namespace NumericSystemConverterApp
             var dp = DependencyPropertyDescriptor.FromProperty(TextBlock.TextProperty, typeof(TextBlock));
             dp.AddValueChanged(AnswerLabel, (s, args) => {
                 if (AnswerLabel.Text.Length > 32) { AnswerLabel.FontSize = 12; } 
-                else if (AnswerLabel.Text.Length > 20) { AnswerLabel.FontSize = 20; } else { AnswerLabel.FontSize = 26; }
+                else if (AnswerLabel.Text.Length > 17) { AnswerLabel.FontSize = 20; } else { AnswerLabel.FontSize = 26; }
             });
-            currentSettings = Settings.Default;
             calculateMode = (CalculateMode)currentSettings.CalculateMode;
             BinaryToDecimal.IsChecked = calculateMode == CalculateMode.BinToDec;
             DecimalToBinary.IsChecked = calculateMode == CalculateMode.DecToBin;
@@ -183,7 +183,7 @@ namespace NumericSystemConverterApp
             {
                 From = 20.0,
                 To = CountButton.ActualWidth,
-                Duration = TimeSpan.FromSeconds(1.5)
+                Duration = TimeSpan.FromSeconds(0.8)
             };
             CountButton.BeginAnimation(WidthProperty, animation);
         }
